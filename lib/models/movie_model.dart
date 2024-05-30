@@ -24,6 +24,41 @@ class Movie {
 
 // our demo data movie data
 List<Movie> movies = [
+   Movie(
+    id: 1,
+    title: "Mad Max",
+    year: 2015,
+    poster: "assets/images/poster_4.jpg",
+    backdrop: "assets/images/backdrop-4.jpg",
+    numOfRatings: 150212,
+    rating: 8.9,
+    criticsReview: 50,
+    metascoreRating: 79,
+    genra: ["Action", "Drama", "Adrenalin"],
+    plot: plotText,
+    cast: [
+      {
+        "orginalName": "James Mangold",
+        "movieName": "Director",
+        "image": "assets/images/actor_1.png",
+      },
+      {
+        "orginalName": "Matt Damon",
+        "movieName": "Carroll",
+        "image": "assets/images/actor_2.png",
+      },
+      {
+        "orginalName": "Christian Bale",
+        "movieName": "Ken Miles",
+        "image": "assets/images/actor_3.png",
+      },
+      {
+        "orginalName": "Caitriona Balfe",
+        "movieName": "Mollie",
+        "image": "assets/images/actor_4.png",
+      },
+    ],
+  ),
   Movie(
     id: 1,
     title: "Bloodshot",
@@ -129,41 +164,7 @@ List<Movie> movies = [
       },
     ],
   ),
-  Movie(
-    id: 1,
-    title: "Mad Max",
-    year: 2015,
-    poster: "assets/images/poster_4.jpg",
-    backdrop: "assets/images/backdrop-4.jpg",
-    numOfRatings: 150212,
-    rating: 8.9,
-    criticsReview: 50,
-    metascoreRating: 79,
-    genra: ["Action", "Drama", "Adrenalin"],
-    plot: plotText,
-    cast: [
-      {
-        "orginalName": "James Mangold",
-        "movieName": "Director",
-        "image": "assets/images/actor_1.png",
-      },
-      {
-        "orginalName": "Matt Damon",
-        "movieName": "Carroll",
-        "image": "assets/images/actor_2.png",
-      },
-      {
-        "orginalName": "Christian Bale",
-        "movieName": "Ken Miles",
-        "image": "assets/images/actor_3.png",
-      },
-      {
-        "orginalName": "Caitriona Balfe",
-        "movieName": "Mollie",
-        "image": "assets/images/actor_4.png",
-      },
-    ],
-  ),
+ 
 ];
 
 List<Movie> movies2 = [
