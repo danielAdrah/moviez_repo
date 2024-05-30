@@ -1,8 +1,9 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import'package:get/get.dart';
+import 'package:get/get.dart';
 
+import 'view/home/animated_home_page.dart';
 import 'view/home/home_page.dart';
 
 void main() {
@@ -15,10 +16,6 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      debugShowCheckedModeBanner: false,
-      home:  HomePage()
-      
-    );
+    return GetMaterialApp(debugShowCheckedModeBanner: false, home: HomePage());
   }
 }
