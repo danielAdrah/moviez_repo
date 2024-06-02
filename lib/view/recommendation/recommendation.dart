@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
@@ -24,18 +25,26 @@ class _RecommendationState extends State<Recommendation> {
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
-        leading: IconButton(
-          padding: EdgeInsets.only(left: kDefaultPadding),
-          onPressed: () {
-            ZoomDrawer.of(context)!.toggle();
-          },
-          icon: SvgPicture.asset("assets/icons/menu.svg"),
+        leading: FadeInLeft(
+          delay: Duration(milliseconds: 400),
+          curve: Curves.linear,
+          child: IconButton(
+            padding: EdgeInsets.only(left: kDefaultPadding),
+            onPressed: () {
+              ZoomDrawer.of(context)!.toggle();
+            },
+            icon: SvgPicture.asset("assets/icons/menu.svg"),
+          ),
         ),
         actions: [
-          IconButton(
-              padding: EdgeInsets.only(right: kDefaultPadding),
-              onPressed: () {},
-              icon: SvgPicture.asset("assets/icons/search.svg"))
+          FadeInRight(
+            delay: Duration(milliseconds: 400),
+            curve: Curves.linear,
+            child: IconButton(
+                padding: EdgeInsets.only(right: kDefaultPadding),
+                onPressed: () {},
+                icon: SvgPicture.asset("assets/icons/search.svg")),
+          )
         ],
       ),
       body: SingleChildScrollView(
@@ -43,7 +52,10 @@ class _RecommendationState extends State<Recommendation> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(height: 50),
-            TopAnime(),
+            FadeInLeft(
+                delay: Duration(milliseconds: 400),
+                curve: Curves.linear,
+                child: TopAnime()),
             SizedBox(height: 20),
             Divider(
               color: kSecondaryColor,
@@ -51,7 +63,10 @@ class _RecommendationState extends State<Recommendation> {
               indent: 50,
             ),
             SizedBox(height: 20),
-            TopAction(),
+            FadeInRight(
+                delay: Duration(milliseconds: 400),
+                curve: Curves.linear,
+                child: TopAction()),
             SizedBox(height: 20),
             Divider(
               color: kSecondaryColor,
@@ -59,7 +74,10 @@ class _RecommendationState extends State<Recommendation> {
               indent: 50,
             ),
             SizedBox(height: 20),
-            TopComedy()
+            FadeInLeft(
+                delay: Duration(milliseconds: 400),
+                curve: Curves.linear,
+                child: TopComedy())
           ],
         ),
       ),

@@ -34,33 +34,44 @@ class _SplashScreenState extends State<SplashScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            SvgPicture.asset("assets/images/mm.svg"),
-            Text(
-              "Welcome Abroad",
-              style: TextStyle(
-                  color: kTextColor,
-                  fontSize: 22,
-                  fontStyle: FontStyle.italic,
-                  fontWeight: FontWeight.w600),
+            FadeInDown(
+              delay: Duration(milliseconds: 400),
+              curve: Curves.linear,
+              child: SvgPicture.asset("assets/images/mm.svg")),
+            ZoomIn(
+              delay: Duration(milliseconds: 430),
+              curve: Curves.linear,
+              child: Text(
+                "Welcome Abroad",
+                style: TextStyle(
+                    color: kTextColor,
+                    fontSize: 22,
+                    fontStyle: FontStyle.italic,
+                    fontWeight: FontWeight.w600),
+              ),
             ),
             SizedBox(height: 110),
-            InkWell(
-              onTap: () {
-                Get.to(HomePage());
-              },
-              child: Container(
-                padding: EdgeInsets.symmetric(horizontal: 100, vertical: 8),
-                margin: EdgeInsets.all(10),
-                decoration: BoxDecoration(
-                  color: kSecondaryColor,
-                  borderRadius: BorderRadius.circular(35),
-                ),
-                child: Text(
-                  "Let's Go",
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
-                      fontStyle: FontStyle.italic),
+            FadeInUpBig(
+              delay: Duration(milliseconds: 400),
+              curve: Curves.linear,
+              child: InkWell(
+                onTap: () {
+                  Get.to(HomePage());
+                },
+                child: Container(
+                  padding: EdgeInsets.symmetric(horizontal: 100, vertical: 8),
+                  margin: EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                    color: kSecondaryColor,
+                    borderRadius: BorderRadius.circular(35),
+                  ),
+                  child: Text(
+                    "Let's Go",
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontStyle: FontStyle.italic),
+                  ),
                 ),
               ),
             ),

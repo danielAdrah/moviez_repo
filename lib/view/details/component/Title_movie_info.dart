@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 
 import '../../../constants.dart';
@@ -20,47 +21,55 @@ class TitleAndMovieInfo extends StatelessWidget {
       child: Row(
         children: [
           Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  movie.title,
-                  style: TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
-                ),
-                SizedBox(height: 10),
-                Row(
-                  children: [
-                    Text(
-                      "${movie.year}",
-                      style: TextStyle(color: kTextLightColor, fontSize: 11),
-                    ),
-                    SizedBox(width: 10),
-                    Text(
-                      "PG-18",
-                      style: TextStyle(color: kTextLightColor, fontSize: 11),
-                    ),
-                    SizedBox(width: 10),
-                    Text(
-                      "2 10 hr",
-                      style: TextStyle(color: kTextLightColor, fontSize: 11),
-                    ),
-                  ],
-                )
-              ],
+            child: ZoomIn(
+              delay: Duration(milliseconds: 400),
+              curve: Curves.linear,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    movie.title,
+                    style: TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
+                  ),
+                  SizedBox(height: 10),
+                  Row(
+                    children: [
+                      Text(
+                        "${movie.year}",
+                        style: TextStyle(color: kTextLightColor, fontSize: 11),
+                      ),
+                      SizedBox(width: 10),
+                      Text(
+                        "PG-18",
+                        style: TextStyle(color: kTextLightColor, fontSize: 11),
+                      ),
+                      SizedBox(width: 10),
+                      Text(
+                        "2 10 hr",
+                        style: TextStyle(color: kTextLightColor, fontSize: 11),
+                      ),
+                    ],
+                  )
+                ],
+              ),
             ),
           ),
-          SizedBox(
-            height: 64,
-            width: 64,
-            child: MaterialButton(
-              color: kSecondaryColor,
-              onPressed: () {},
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(25)),
-              child: Icon(
-                Icons.add,
-                size: 25,
-                color: Colors.white,
+          FadeInRight(
+            delay: Duration(milliseconds: 400),
+            curve: Curves.linear,
+            child: SizedBox(
+              height: 64,
+              width: 64,
+              child: MaterialButton(
+                color: kSecondaryColor,
+                onPressed: () {},
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(25)),
+                child: Icon(
+                  Icons.add,
+                  size: 25,
+                  color: Colors.white,
+                ),
               ),
             ),
           ),

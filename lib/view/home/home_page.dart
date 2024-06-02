@@ -55,18 +55,26 @@ class MainScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
-        leading: IconButton(
-          padding: EdgeInsets.only(left: kDefaultPadding),
-          onPressed: () {
-            ZoomDrawer.of(context)!.toggle();
-          },
-          icon: SvgPicture.asset("assets/icons/menu.svg"),
+        leading: FadeInLeft(
+          delay: Duration(milliseconds: 400),
+          curve: Curves.linear,
+          child: IconButton(
+            padding: EdgeInsets.only(left: kDefaultPadding),
+            onPressed: () {
+              ZoomDrawer.of(context)!.toggle();
+            },
+            icon: SvgPicture.asset("assets/icons/menu.svg"),
+          ),
         ),
         actions: [
-          IconButton(
-              padding: EdgeInsets.only(right: kDefaultPadding),
-              onPressed: () {},
-              icon: SvgPicture.asset("assets/icons/search.svg"))
+          FadeInRight(
+            delay: Duration(milliseconds: 400),
+            curve: Curves.linear,
+            child: IconButton(
+                padding: EdgeInsets.only(right: kDefaultPadding),
+                onPressed: () {},
+                icon: SvgPicture.asset("assets/icons/search.svg")),
+          )
         ],
       ),
       body: Body(),

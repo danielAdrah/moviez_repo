@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
@@ -51,59 +52,71 @@ class _CategoriesState extends State<Categories> {
         appBar: AppBar(
           backgroundColor: Colors.white,
           elevation: 0,
-          leading: IconButton(
-            padding: EdgeInsets.only(left: kDefaultPadding),
-            onPressed: () {
-              ZoomDrawer.of(context)!.toggle();
-            },
-            icon: SvgPicture.asset("assets/icons/menu.svg"),
+          leading: FadeInLeft(
+            delay: Duration(milliseconds: 400),
+            curve: Curves.linear,
+            child: IconButton(
+              padding: EdgeInsets.only(left: kDefaultPadding),
+              onPressed: () {
+                ZoomDrawer.of(context)!.toggle();
+              },
+              icon: SvgPicture.asset("assets/icons/menu.svg"),
+            ),
           ),
           actions: [
-            IconButton(
-                padding: EdgeInsets.only(right: kDefaultPadding),
-                onPressed: () {},
-                icon: SvgPicture.asset("assets/icons/search.svg"))
+            FadeInRight(
+              delay: Duration(milliseconds: 400),
+              curve: Curves.linear,
+              child: IconButton(
+                  padding: EdgeInsets.only(right: kDefaultPadding),
+                  onPressed: () {},
+                  icon: SvgPicture.asset("assets/icons/search.svg")),
+            )
           ],
         ),
         body: SingleChildScrollView(
           child: Column(
             children: [
               SizedBox(height: 30),
-              InkWell(
-                onTap: () {},
-                child: Container(
-                  height: 36,
-                  margin: EdgeInsets.symmetric(vertical: 5),
-                  child: ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      itemCount: genres.length,
-                      itemBuilder: (context, i) {
-                        return InkWell(
-                          onTap: () {
-                            setState(() {
-                              selectedIndex = i;
-                              currentTab = i;
-                            });
-                          },
-                          child: Container(
-                            margin: EdgeInsets.only(left: 15),
-                            padding: EdgeInsets.symmetric(
-                                horizontal: 20, vertical: 5),
-                            decoration: BoxDecoration(
-                                color: selectedIndex == i
-                                    ? kSecondaryColor
-                                    : Colors.white,
-                                border: Border.all(color: Colors.black26),
-                                borderRadius: BorderRadius.circular(25)),
-                            child: Text(genres[i],
-                                style: TextStyle(
-                                    color: selectedIndex == i
-                                        ? Colors.white
-                                        : kSecondaryColor,
-                                    fontSize: 14)),
-                          ),
-                        );
-                      }),
+              ZoomIn(
+                delay: Duration(milliseconds: 400),
+                curve: Curves.linear,
+                child: InkWell(
+                  onTap: () {},
+                  child: Container(
+                    height: 36,
+                    margin: EdgeInsets.symmetric(vertical: 5),
+                    child: ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        itemCount: genres.length,
+                        itemBuilder: (context, i) {
+                          return InkWell(
+                            onTap: () {
+                              setState(() {
+                                selectedIndex = i;
+                                currentTab = i;
+                              });
+                            },
+                            child: Container(
+                              margin: EdgeInsets.only(left: 15),
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: 20, vertical: 5),
+                              decoration: BoxDecoration(
+                                  color: selectedIndex == i
+                                      ? kSecondaryColor
+                                      : Colors.white,
+                                  border: Border.all(color: Colors.black26),
+                                  borderRadius: BorderRadius.circular(25)),
+                              child: Text(genres[i],
+                                  style: TextStyle(
+                                      color: selectedIndex == i
+                                          ? Colors.white
+                                          : kSecondaryColor,
+                                      fontSize: 14)),
+                            ),
+                          );
+                        }),
+                  ),
                 ),
               ),
               //===
@@ -120,11 +133,15 @@ class _CategoriesState extends State<Categories> {
                             movie: anime[index],
                           ));
                         },
-                        child: AnimeTile(
-                          image: anime[index].poster,
-                          rate: "Rate : ${anime[index].rating}",
-                          subTitle: anime[index].plot,
-                          title: anime[index].title,
+                        child: FadeInLeft(
+                          delay: Duration(milliseconds: 400),
+                          curve: Curves.linear,
+                          child: AnimeTile(
+                            image: anime[index].poster,
+                            rate: "Rate : ${anime[index].rating}",
+                            subTitle: anime[index].plot,
+                            title: anime[index].title,
+                          ),
                         ),
                       );
                     }),
@@ -140,11 +157,15 @@ class _CategoriesState extends State<Categories> {
                             movie: actionMovies[index],
                           ));
                         },
-                        child: AnimeTile(
-                          image: actionMovies[index].poster,
-                          rate: "Rate : ${actionMovies[index].rating}",
-                          subTitle: actionMovies[index].plot,
-                          title: actionMovies[index].title,
+                        child: FadeInRight(
+                          delay: Duration(milliseconds: 400),
+                          curve: Curves.linear,
+                          child: AnimeTile(
+                            image: actionMovies[index].poster,
+                            rate: "Rate : ${actionMovies[index].rating}",
+                            subTitle: actionMovies[index].plot,
+                            title: actionMovies[index].title,
+                          ),
                         ),
                       );
                     }),
@@ -160,11 +181,15 @@ class _CategoriesState extends State<Categories> {
                             movie: comedyMovies[index],
                           ));
                         },
-                        child: AnimeTile(
-                          image: comedyMovies[index].poster,
-                          rate: "Rate : ${comedyMovies[index].rating}",
-                          subTitle: comedyMovies[index].plot,
-                          title: comedyMovies[index].title,
+                        child: FadeInLeft(
+                          delay: Duration(milliseconds: 400),
+                          curve: Curves.linear,
+                          child: AnimeTile(
+                            image: comedyMovies[index].poster,
+                            rate: "Rate : ${comedyMovies[index].rating}",
+                            subTitle: comedyMovies[index].plot,
+                            title: comedyMovies[index].title,
+                          ),
                         ),
                       );
                     }),
@@ -180,11 +205,15 @@ class _CategoriesState extends State<Categories> {
                             movie: dramaMovies[index],
                           ));
                         },
-                        child: AnimeTile(
-                          image: dramaMovies[index].poster,
-                          rate: "Rate : ${dramaMovies[index].rating}",
-                          subTitle: dramaMovies[index].plot,
-                          title: dramaMovies[index].title,
+                        child: FadeInRight(
+                          delay: Duration(milliseconds: 400),
+                          curve: Curves.linear,
+                          child: AnimeTile(
+                            image: dramaMovies[index].poster,
+                            rate: "Rate : ${dramaMovies[index].rating}",
+                            subTitle: dramaMovies[index].plot,
+                            title: dramaMovies[index].title,
+                          ),
                         ),
                       );
                     }),
@@ -200,11 +229,15 @@ class _CategoriesState extends State<Categories> {
                             movie: fantasyMovies[index],
                           ));
                         },
-                        child: AnimeTile(
-                          image: fantasyMovies[index].poster,
-                          rate: "Rate : ${fantasyMovies[index].rating}",
-                          subTitle: fantasyMovies[index].plot,
-                          title: fantasyMovies[index].title,
+                        child: FadeInLeft(
+                          delay: Duration(milliseconds: 400),
+                          curve: Curves.linear,
+                          child: AnimeTile(
+                            image: fantasyMovies[index].poster,
+                            rate: "Rate : ${fantasyMovies[index].rating}",
+                            subTitle: fantasyMovies[index].plot,
+                            title: fantasyMovies[index].title,
+                          ),
                         ),
                       );
                     }),

@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:moviez/constants.dart';
 import 'categories.dart';
@@ -28,14 +29,26 @@ class _BodyState extends State<Body> {
                 unselectedLabelColor: Colors.black,
                 indicatorColor: kSecondaryColor,
                 tabs: [
-                  Tab(
-                    child: Text("In Theater"),
+                  FadeInLeft(
+                    delay: Duration(milliseconds: 420),
+                    curve: Curves.linear,
+                    child: Tab(
+                      child: Text("In Theater"),
+                    ),
                   ),
-                  Tab(
-                    child: Text("Coming Soon"),
+                  ZoomIn(
+                    delay: Duration(milliseconds: 400),
+                    curve: Curves.linear,
+                    child: Tab(
+                      child: Text("Coming Soon"),
+                    ),
                   ),
-                  Tab(
-                    child: Text("Box Office"),
+                  FadeInRight(
+                    delay: Duration(milliseconds: 420),
+                    curve: Curves.linear,
+                    child: Tab(
+                      child: Text("Box Office"),
+                    ),
                   ),
                 ]),
             SizedBox(height: 50),

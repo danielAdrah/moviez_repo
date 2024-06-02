@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import "package:like_button/like_button.dart";
@@ -50,70 +51,80 @@ class BackDropRating extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      SizedBox(height: 15),
-                      SvgPicture.asset("assets/icons/star_fill.svg"),
-                      SizedBox(height: 5),
-                      RichText(
-                        text: TextSpan(
-                          style: TextStyle(color: Colors.black),
-                          children: [
-                            TextSpan(
-                              text: "${movie.rating}/",
-                              style: TextStyle(fontWeight: FontWeight.w500),
-                            ),
-                            TextSpan(
-                              text: "10\n",
-                              style: TextStyle(fontWeight: FontWeight.w500),
-                            )
-                          ],
+                  FadeInLeft(
+                    delay: Duration(milliseconds: 400),
+                    curve: Curves.linear,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        SizedBox(height: 15),
+                        SvgPicture.asset("assets/icons/star_fill.svg"),
+                        SizedBox(height: 5),
+                        RichText(
+                          text: TextSpan(
+                            style: TextStyle(color: Colors.black),
+                            children: [
+                              TextSpan(
+                                text: "${movie.rating}/",
+                                style: TextStyle(fontWeight: FontWeight.w500),
+                              ),
+                              TextSpan(
+                                text: "10\n",
+                                style: TextStyle(fontWeight: FontWeight.w500),
+                              )
+                            ],
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      SizedBox(height: 7),
-                      LikeButton(
-                        size: 32,
-                        animationDuration: Duration(milliseconds: 1200),
-                        bubblesColor: BubblesColor(
-                            dotPrimaryColor: kSecondaryColor,
-                            dotSecondaryColor: kSecondaryColor),
-                      ),
-                      Text(
-                        "Rate This",
-                        style: TextStyle(
-                            fontSize: 12, fontWeight: FontWeight.w500),
-                      )
-                    ],
-                  ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Container(
-                        padding: EdgeInsets.all(6),
-                        decoration: BoxDecoration(
-                            color: Colors.green,
-                            borderRadius: BorderRadius.circular(5)),
-                        child: Text(
-                          "${movie.metascoreRating}",
+                  ZoomIn(
+                    delay: Duration(milliseconds: 400),
+                    curve: Curves.linear,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        SizedBox(height: 7),
+                        LikeButton(
+                          size: 32,
+                          animationDuration: Duration(milliseconds: 1200),
+                          bubblesColor: BubblesColor(
+                              dotPrimaryColor: kSecondaryColor,
+                              dotSecondaryColor: kSecondaryColor),
+                        ),
+                        Text(
+                          "Rate This",
                           style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 14,
-                              fontWeight: FontWeight.w500),
+                              fontSize: 12, fontWeight: FontWeight.w500),
+                        )
+                      ],
+                    ),
+                  ),
+                  FadeInRight(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          padding: EdgeInsets.all(6),
+                          decoration: BoxDecoration(
+                              color: Colors.green,
+                              borderRadius: BorderRadius.circular(5)),
+                          child: Text(
+                            "${movie.metascoreRating}",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 14,
+                                fontWeight: FontWeight.w500),
+                          ),
                         ),
-                      ),
-                      SizedBox(height: 5),
-                      Text(
-                        "MetaScore",
-                        style: TextStyle(
-                            fontSize: 12, fontWeight: FontWeight.w500),
-                      )
-                    ],
+                        SizedBox(height: 5),
+                        Text(
+                          "MetaScore",
+                          style: TextStyle(
+                              fontSize: 12, fontWeight: FontWeight.w500),
+                        )
+                      ],
+                    ),
                   ),
                 ],
               ),

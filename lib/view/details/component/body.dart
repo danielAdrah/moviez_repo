@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:moviez/view/home/components/genre_card.dart';
@@ -31,16 +32,24 @@ class Body extends StatelessWidget {
             SizedBox(height: 20),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-              child: Text(
-                "Movie Plot",
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+              child: FadeInLeft(
+                delay: Duration(milliseconds: 400),
+                curve: Curves.linear,
+                child: Text(
+                  "Movie Plot",
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+                ),
               ),
             ),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 20),
-              child: Text(
-                movie.plot,
-                style: TextStyle(fontSize: 12, color: Colors.grey),
+              child: ZoomIn(
+                delay: Duration(milliseconds: 400),
+                curve: Curves.linear,
+                child: Text(
+                  movie.plot,
+                  style: TextStyle(fontSize: 12, color: Colors.grey),
+                ),
               ),
             ),
             SizedBox(height: 15),
@@ -68,32 +77,44 @@ class CastAndCrow extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              "Your Comment",
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+            FadeInLeft(
+              delay: Duration(milliseconds: 400),
+              curve: Curves.linear,
+              child: Text(
+                "Your Comment",
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+              ),
             ),
             SizedBox(height: 10),
-            Container(
-              height: 50,
-              child: CustomeTextField(),
+            ZoomIn(
+              delay: Duration(milliseconds: 400),
+              curve: Curves.linear,
+              child: Container(
+                height: 50,
+                child: CustomeTextField(),
+              ),
             ),
             SizedBox(height: 30),
-            Center(
-              child: InkWell(
-                onTap: () {},
-                child: Container(
-                  padding: EdgeInsets.symmetric(horizontal: 100, vertical: 8),
-                  margin: EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    color: kSecondaryColor,
-                    borderRadius: BorderRadius.circular(35),
-                  ),
-                  child: Text(
-                    "Send",
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20,
-                        fontStyle: FontStyle.italic),
+            FadeInUp(
+              delay: Duration(milliseconds: 400),
+              curve: Curves.linear,
+              child: Center(
+                child: InkWell(
+                  onTap: () {},
+                  child: Container(
+                    padding: EdgeInsets.symmetric(horizontal: 100, vertical: 8),
+                    margin: EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                      color: kSecondaryColor,
+                      borderRadius: BorderRadius.circular(35),
+                    ),
+                    child: Text(
+                      "Send",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20,
+                          fontStyle: FontStyle.italic),
+                    ),
                   ),
                 ),
               ),

@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 
 import '../../../models/movie_model.dart';
@@ -29,16 +30,24 @@ class AnimeDetailed extends StatelessWidget {
             SizedBox(height: 20),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-              child: Text(
-                "Movie Plot",
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+              child: FadeInLeft(
+                delay: Duration(milliseconds: 400),
+                curve: Curves.linear,
+                child: Text(
+                  "Movie Plot",
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+                ),
               ),
             ),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 20),
-              child: Text(
-                movie.plot,
-                style: TextStyle(fontSize: 12, color: Colors.grey),
+              child: ZoomIn(
+                delay: Duration(milliseconds: 400),
+                curve: Curves.linear,
+                child: Text(
+                  movie.plot,
+                  style: TextStyle(fontSize: 12, color: Colors.grey),
+                ),
               ),
             ),
             SizedBox(height: 15),
