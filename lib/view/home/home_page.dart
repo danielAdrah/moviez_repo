@@ -107,7 +107,7 @@ class MenuScreen extends StatelessWidget {
           size: 30,
         ),
         title: Text(
-          "Top Movies",
+          "Tops ",
           style: TextStyle(color: Colors.white, fontSize: 20),
         ),
         Recommendation()),

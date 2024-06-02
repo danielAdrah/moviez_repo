@@ -2,7 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
+import "package:like_button/like_button.dart";
+import 'package:moviez/constants.dart';
 import '../../../models/movie_model.dart';
 
 class BackDropRating extends StatelessWidget {
@@ -75,8 +76,14 @@ class BackDropRating extends StatelessWidget {
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      SvgPicture.asset("assets/icons/star.svg"),
-                      SizedBox(height: 5),
+                      SizedBox(height: 7),
+                      LikeButton(
+                        size: 32,
+                        animationDuration: Duration(milliseconds: 1200),
+                        bubblesColor: BubblesColor(
+                            dotPrimaryColor: kSecondaryColor,
+                            dotSecondaryColor: kSecondaryColor),
+                      ),
                       Text(
                         "Rate This",
                         style: TextStyle(

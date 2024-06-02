@@ -42,8 +42,8 @@ class _BodyState extends State<Body> {
             Expanded(
               flex: 1,
               child: TabBarView(children: [
-                MovieCarousel(),
                 MovieCarousel2(),
+                MovieCarousel(),
                 MovieCarousel3(),
               ]),
             ),

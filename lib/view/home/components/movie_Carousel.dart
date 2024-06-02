@@ -16,7 +16,7 @@ class MovieCarousel extends StatefulWidget {
 
 class _MovieCarouselState extends State<MovieCarousel> {
   late PageController pageController;
-  int initialPage = 1;
+  int initialPage = 0;
   @override
   void initState() {
     super.initState();

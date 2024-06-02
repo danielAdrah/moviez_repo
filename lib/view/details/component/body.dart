@@ -62,21 +62,44 @@ class CastAndCrow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.all(20),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            "Your Comment",
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
-          ),
-          SizedBox(height: 10),
-          Container(
-            height: 50,
-            child: CustomeTextField(),
-          ),
-        ],
+    return Material(
+      child: Padding(
+        padding: EdgeInsets.all(20),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              "Your Comment",
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+            ),
+            SizedBox(height: 10),
+            Container(
+              height: 50,
+              child: CustomeTextField(),
+            ),
+            SizedBox(height: 30),
+            Center(
+              child: InkWell(
+                onTap: () {},
+                child: Container(
+                  padding: EdgeInsets.symmetric(horizontal: 100, vertical: 8),
+                  margin: EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                    color: kSecondaryColor,
+                    borderRadius: BorderRadius.circular(35),
+                  ),
+                  child: Text(
+                    "Send",
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontStyle: FontStyle.italic),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
